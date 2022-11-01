@@ -218,3 +218,59 @@ p.text {
 p span {
   color: #6feaf6;
 }
+
+.bookprice{
+  display: flex;
+
+}
+
+.bookbtn{
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* contact-form */
+
+.contactform {
+  font-family: "Fira Sans", sans-serif;
+  padding: 0 35px;
+
+  color:white;
+  background-color: rgb(27, 26, 26);
+}
+
+/* Contact-form-social-container */
+
+
+.socialContainer {
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.insta {
+  font-size: 4rem;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.linkdln {
+  font-size: 4rem;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.git {
+  font-size: 4rem;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.facebook {
+  font-size: 4rem;
+
+  margin: 10px;
+  cursor: pointer;
+}
+

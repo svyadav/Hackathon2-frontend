@@ -55,6 +55,10 @@ const Login=()=>{
       <Button className="btn-login" variant="primary" onClick={()=>navigate('/signup')}>
         SignUp
       </Button>
+      <div>or</div>
+      <Button className="btn-login" variant="primary" onClick={()=>navigate('/contact')}>
+        Contact Us
+      </Button>
       
       </div>
     </Form>

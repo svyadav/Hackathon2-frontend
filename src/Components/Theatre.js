@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { BiSquareRounded } from "react-icons/bi";
+let selectedSeats = [];
 const Theatre = () => {
   const navigate = useNavigate();
   const [row1, setRow1] = useState([
@@ -349,22 +350,75 @@ const Theatre = () => {
       tempSeats.push(item);
     });
     setRow10(tempSeats);
+    console.log(tempSeats);
   };
 
-  const saveSeats=()=>{
-    
-  }
+  const getAllSeats = () => {
+    let selectedSeats = [];
+    row1.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    row2.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    row3.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    row4.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    row5.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    row6.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    row7.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    row8.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    row9.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
 
+    row10.map((item) => {
+      if (item.selected === true) {
+        selectedSeats.push(1);
+      }
+    });
+    return selectedSeats.length;
+  };
 
-
-
+  const saveSeats = () => {
+    navigate("/payment");
+  };
 
   return (
     <>
       <div className="movie-hall">
         <div className="book-title">
           <div>
-            <h1 class="fav-seat">Book your favourite seat</h1>
+            <h1 className="fav-seat">Book your favourite seat</h1>
           </div>
           {/* <div>
             <Button
@@ -408,24 +462,24 @@ const Theatre = () => {
                 <div key={index}>
                   <div
                     onClick={() => {
-                      if (item.selected == false && item.empty == false) {
+                      if (item.selected === false && item.empty === false) {
                         alert("Already booked");
                       } else {
                         onSelectRow1(index);
                       }
                     }}
                   >
-                    {item.empty == false && item.selected == true ? (
+                    {item.empty === false && item.selected === true ? (
                       <div>
                         <BiSquareRounded
                           style={{ backgroundColor: "green", margin: "5px" }}
                         />
                       </div>
-                    ) : item.empty == true && item.selected == false ? (
+                    ) : item.empty === true && item.selected === false ? (
                       <div>
                         <BiSquareRounded style={{ margin: "5px" }} />
                       </div>
-                    ) : item.empty == false && item.selected == false ? (
+                    ) : item.empty === false && item.selected === false ? (
                       <div>
                         <BiSquareRounded
                           style={{ backgroundColor: "8e8e8e", margin: "5px" }}
@@ -724,24 +778,24 @@ const Theatre = () => {
                 <div key={index}>
                   <div
                     onClick={() => {
-                      if (item.selected == false && item.empty == false) {
+                      if (item.selected === false && item.empty === false) {
                         alert("Already booked");
                       } else {
                         onSelectRow10(index);
                       }
                     }}
                   >
-                    {item.empty == false && item.selected == true ? (
+                    {item.empty === false && item.selected === true ? (
                       <div>
                         <BiSquareRounded
                           style={{ backgroundColor: "green", margin: "5px" }}
                         />
                       </div>
-                    ) : item.empty == true && item.selected == false ? (
+                    ) : item.empty === true && item.selected === false ? (
                       <div>
                         <BiSquareRounded style={{ margin: "5px" }} />
                       </div>
-                    ) : item.empty == false && item.selected == false ? (
+                    ) : item.empty === false && item.selected === false ? (
                       <div>
                         <BiSquareRounded
                           style={{ backgroundColor: "8e8e8e", margin: "5px" }}
@@ -754,11 +808,19 @@ const Theatre = () => {
             })}
           </div>
         </div>
-        <p className="text">
-          you have selected <span id="count">0 </span> seats for a price of ${" "}
-          <span id="total"> 0</span>
-        </p>
-        <Button variant="primary" onClick={()=>saveSeats()}>Save</Button>
+        <div className="bookprice">
+          <div>
+            <p className="text">
+              you have selected <span>{getAllSeats()}</span> seats for a price
+              of $ <span id="total"> 0</span>
+            </p>
+          </div>
+          <div className="bookbtn">
+            <Button variant="success" onClick={() => saveSeats()}>
+              Book Now
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );
